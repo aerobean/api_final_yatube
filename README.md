@@ -36,7 +36,7 @@ $source <myenvname>/scripts/activate
 
 Установите зависимости из requirements.txt:
 ```sh
-$pip install -r reqiurements.txt
+$pip install -r requirements.txt
 ```
 
 Выполните миграции:
