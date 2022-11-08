@@ -21,34 +21,34 @@ API для социальной сети Yatube.
 
 Скопируйте репозиторий в свою папку:
 ```sh
-$git clone https://github.com/aerobean/api_final_yatube.git
+git clone https://github.com/aerobean/api_final_yatube.git
 ```
 
 Установите виртуальное окружение:
 ```sh
-$python3 -m venv venv
+python3 -m venv venv
 ```
 
 После установки запустите его:
 ```sh
-$source bin/scripts/activate
+source мутм/scripts/activate
 ```
 
 Установите зависимости из requirements.txt:
 ```sh
-$pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Выполните миграции:
 ```sh
-$cd yatube_api
-$python3 manage.py makemigrations
-$python3 manage.py migrate
+cd yatube_api
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 
 Запустите сервер:
 ```sh
-$python3 manage.py runserver
+python3 manage.py runserver
 ```
 
 API доступен по адресу http://127.0.0.1:8000/api/v1/
