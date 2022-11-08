@@ -12,8 +12,8 @@ API для социальной сети Yatube.
 
 ## Технологии
 
-- [Python 3.7.0](https://www.python.org)
-- [Django 3.2.14](https://www.djangoproject.com)
+- [Python 3.9.10](https://www.python.org)
+- [Django 2.2.15](https://www.djangoproject.com)
 - [djangorestframework 3.12.4](https://www.django-rest-framework.org)
 
 
@@ -21,34 +21,34 @@ API для социальной сети Yatube.
 
 Скопируйте репозиторий в свою папку:
 ```sh
-$git clone https://github.com/aerobean/api_final_yatube.git
+git clone https://github.com/aerobean/api_final_yatube.git
 ```
 
 Установите виртуальное окружение:
 ```sh
-$python3 -m venv <myenvname>
+python3 -m venv venv
 ```
 
 После установки запустите его:
 ```sh
-$source <myenvname>/scripts/activate
+source venv/bin/activate
 ```
 
 Установите зависимости из requirements.txt:
 ```sh
-$pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Выполните миграции:
 ```sh
-$cd yatube_api
-$python3 manage.py makemigrations
-$python3 manage.py migrate
+cd yatube_api
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 
 Запустите сервер:
 ```sh
-$python3 manage.py runserver
+python3 manage.py runserver
 ```
 
 API доступен по адресу http://127.0.0.1:8000/api/v1/
