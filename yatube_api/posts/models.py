@@ -77,7 +77,9 @@ class Comment(models.Model):
         verbose_name='Текст комментария',
         help_text='Что же вы об этом думаете?'
     )
-    created = models.DateTimeField(auto_now_add=True, db_index=True)
+    created = models.DateTimeField(
+        'Дата добавления', auto_now_add=True, db_index=True
+    )
 
     class Meta:
         ordering = ('-created',)

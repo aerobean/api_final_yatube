@@ -34,6 +34,12 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = (OwnerOrReadOnly,)
 
+    def get_queryset(self):
+        post_id = self.kwargs.get('post_id')
+        post = get_object_or_404(Post, id=post_id)
+        queryset = post.comments.all()
+        return queryset
+
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
@@ -41,9 +47,6 @@ class CommentViewSet(viewsets.ModelViewSet):
         return get_object_or_404(
             Post, pk=self.kwargs.get('post_id')
         )
-
-    def get_queryset(self):
-        return self.get_post().comments
 
 
 class FollowViewSet(mixins.CreateModelMixin,
