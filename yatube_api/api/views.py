@@ -13,6 +13,7 @@ from .serializers import (
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    permission_classes = (OwnerOrReadOnly,)
 
 
 class PostViewSet(viewsets.ModelViewSet):
