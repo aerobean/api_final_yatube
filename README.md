@@ -31,7 +31,7 @@ python3 -m venv venv
 
 После установки запустите его:
 ```sh
-source мутм/scripts/activate
+source venv/scripts/activate
 ```
 
 Установите зависимости из requirements.txt:
