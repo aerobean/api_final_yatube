@@ -7,7 +7,7 @@ from .permissions import OwnerOrReadOnly
 from .serializers import (
     CommentSerializer, FollowSerializer, GroupSerializer,
     PostSerializer, UserSerializer
-    )
+)
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
@@ -32,7 +32,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
-    permission_classes = (OwnerOrReadOnly,)
+    permission_classes = (OwnerOrReadOnly, )
 
     def get_queryset(self):
         post_id = self.kwargs.get('post_id')
@@ -41,12 +41,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
-
-    def get_post(self):
-        return get_object_or_404(
-            Post, pk=self.kwargs.get('post_id')
-        )
+        post_id = self.kwargs.get('post_id')
+        post = get_object_or_404(Post, id=post_id)
+        serializer.save(author=self.request.user, post=post)
 
 
 class FollowViewSet(mixins.CreateModelMixin,
@@ -60,7 +57,6 @@ class FollowViewSet(mixins.CreateModelMixin,
     search_fields = ('following__username', 'user__username',)
 
     def get_queryset(self):
-        """Возвращает все подписки пользователя, сделавшего запрос"""
         new_queryset = Follow.objects.filter(user=self.request.user)
         return new_queryset
 
